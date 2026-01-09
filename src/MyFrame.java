@@ -7,6 +7,6 @@ public class MyFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(300,400);
         this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(new Color(0xFFF3D0));
+//        this.getContentPane().setBackground(new Color(0xFFF3D0));
     }
 }

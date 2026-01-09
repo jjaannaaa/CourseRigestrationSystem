@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         //panel
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(0xFFD0DD));
+        panel.setBackground(new Color(0xFFF3D0));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         //frame
