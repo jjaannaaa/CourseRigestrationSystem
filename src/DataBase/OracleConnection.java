@@ -1,0 +1,32 @@
+package DataBase;
+
+import java.sql.*;
+public class OracleConnection implements DataBaseConnection {
+
+    @Override
+    public Connection getConnection() {
+        DataBaseInfo dbi = Utility.getDataBaseInfo();
+        if (dbi == null){
+            return null;
+        }
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(dbi.getHost(),dbi.getUsername(),dbi.getPassword());
+            System.out.println("Connected to Oracle database");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
+
+    @Override
+    public void closeConnection(Connection con) {
+        try {
+            if (con != null){
+                con.close();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
