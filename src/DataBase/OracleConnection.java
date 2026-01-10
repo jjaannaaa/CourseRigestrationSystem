@@ -5,7 +5,7 @@ public class OracleConnection implements DataBaseConnection {
 
     @Override
     public Connection getConnection() {
-        DataBaseInfo dbi = Utility.getDataBaseInfo();
+        DataBaseInfo dbi = Properties.getDataBaseInfo();
         if (dbi == null){
             return null;
         }
@@ -25,6 +25,19 @@ public class OracleConnection implements DataBaseConnection {
             if (con != null){
                 con.close();
             }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void closeConnection(Connection con, ResultSet set) {
+        try {
+            if (con != null){
+                con.close();
+            }
+            if (set != null)
+                set.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

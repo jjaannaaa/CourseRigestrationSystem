@@ -2,15 +2,14 @@ package DataBase;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 
-public class Utility {
+public class Properties {
     public static DataBaseInfo getDataBaseInfo(){
         DataBaseInfo dbi = new DataBaseInfo();
         FileInputStream fis = null;
         try {
             fis = new FileInputStream("src/DataBase/config.properties");
-            Properties prop = new Properties();
+            java.util.Properties prop = new java.util.Properties();
             prop.load(fis);
             dbi.setHost(prop.getProperty("host"));
             dbi.setUsername(prop.getProperty("username"));
