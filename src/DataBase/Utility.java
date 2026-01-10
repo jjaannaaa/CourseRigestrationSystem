@@ -9,7 +9,7 @@ public class Utility {
         DataBaseInfo dbi = new DataBaseInfo();
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream("config.properties");
+            fis = new FileInputStream("src/DataBase/config.properties");
             Properties prop = new Properties();
             prop.load(fis);
             dbi.setHost(prop.getProperty("host"));

@@ -1,3 +1,6 @@
+import DataBase.DataBaseConnection;
+import DataBase.OracleConnection;
+
 import javax.swing.*;
 import java.sql.Connection;
 
@@ -9,9 +12,14 @@ public class Main {
 //        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 //
 //        //frame
-//        MyFrame Register = new MyFrame();
+//        UI.MyFrame Register = new UI.MyFrame();
 //        Register.add(panel);
 //        Register.setVisible(true);
 
+
+        //connection test
+        DataBaseConnection oracle = new OracleConnection();
+        Connection connection = oracle.getConnection();
+        oracle.closeConnection(connection);
     }
 }
