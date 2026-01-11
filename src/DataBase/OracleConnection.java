@@ -42,4 +42,33 @@ public class OracleConnection implements DataBaseConnection {
             System.out.println(e.getMessage());
         }
     }
+
+    @Override
+    public void closeConnection(Connection con, ResultSet set, CallableStatement cs) {
+        try {
+            if (con != null){
+                con.close();
+            }
+            if (set != null)
+                set.close();
+            if (cs != null)
+                cs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void closeConnection(Connection con, CallableStatement cs) {
+        try {
+            if (con != null){
+                con.close();
+            }
+            if (cs != null)
+                cs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

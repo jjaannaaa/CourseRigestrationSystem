@@ -1,13 +1,17 @@
 package UI;
-
+import UI.Student.StudentPanel;
 import javax.swing.*;
+
 
 public class MyFrame extends JFrame {
     public MyFrame(){
-        this.setTitle("Registration");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(300,400);
-        this.setLocationRelativeTo(null);
-//        this.getContentPane().setBackground(new Color(0xFFF3D0));
+        setTitle("Student Registration System");
+        setSize(900, 600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JTabbedPane tabs = new JTabbedPane();
+        tabs.add("Students", new StudentPanel());
+        add(tabs);
     }
 }

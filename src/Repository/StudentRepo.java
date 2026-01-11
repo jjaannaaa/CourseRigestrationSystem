@@ -4,7 +4,6 @@ import DataBase.DataBaseConnection;
 import DataBase.OracleConnection;
 import Model.Student;
 import oracle.jdbc.OracleTypes;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +61,7 @@ public class StudentRepo {
         String sql = "{ call get_student(?,?,?) }";
         DataBaseConnection oracle = null;
         Connection connection = null;
-        CallableStatement cs;
+        CallableStatement cs = null;
         ResultSet set = null;
         try {
             oracle = new OracleConnection();
@@ -78,9 +77,47 @@ public class StudentRepo {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }finally {
-            oracle.closeConnection(connection);
+            oracle.closeConnection(connection, set, cs);
         }
         return student;
     }
 
+    public static void updateStudent(int id, String name, String email){
+        String sql = "{ call update_student(?,?,?) }";
+        DataBaseConnection oracle = null;
+        Connection connection = null;
+        CallableStatement cs = null;
+        try {
+            oracle = new OracleConnection();
+            connection = oracle.getConnection();
+            cs = connection.prepareCall(sql);
+
+            cs.setInt(1, id);
+            cs.setString(2, name);
+            cs.setString(3, email);
+            cs.execute();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally {
+            oracle.closeConnection(connection, cs);
+        }
+    }
+    public static void deleteStudent(int id){
+        String sql = "{ call delete_student(?) }";
+        DataBaseConnection oracle = null;
+        Connection connection = null;
+        CallableStatement cs = null;
+        try {
+            oracle = new OracleConnection();
+            connection = oracle.getConnection();
+            cs = connection.prepareCall(sql);
+            cs.setInt(1, id);
+            cs.execute();
+            System.out.println("Student Updated Successfully");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            oracle.closeConnection(connection,cs);
+        }
+    }
 }
