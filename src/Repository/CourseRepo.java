@@ -4,7 +4,6 @@ import DataBase.DataBaseConnection;
 import DataBase.OracleConnection;
 import Model.Course;
 import oracle.jdbc.internal.OracleTypes;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

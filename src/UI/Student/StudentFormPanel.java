@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class StudentFormPanel extends JPanel {
-    JTextField txtName = new JTextField(15);
-    JTextField txtEmail = new JTextField(15);
+    private JTextField txtName = new JTextField(15);
+    private JTextField txtEmail = new JTextField(15);
 
     public StudentFormPanel() {
         setLayout(new GridLayout(2, 2, 10, 10));
