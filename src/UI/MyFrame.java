@@ -1,5 +1,6 @@
 package UI;
 import UI.Course.CoursePanel;
+import UI.Registration.RegistrationPanel;
 import UI.Student.StudentPanel;
 import javax.swing.*;
 
@@ -14,6 +15,7 @@ public class MyFrame extends JFrame {
         JTabbedPane tabs = new JTabbedPane();
         tabs.add("Students", new StudentPanel());
         tabs.add("Courses", new CoursePanel());
+        tabs.add("Registration", new RegistrationPanel());
         add(tabs);
     }
 }
