@@ -94,5 +94,8 @@ public class RegistrationPanel extends JPanel {
             studentTable.loadStudents();
             courseTable.clearSelection();
         });
+        buttons.getRefreshButton().addActionListener(e -> {
+            studentTable.loadStudents();
+        });
     }
 }

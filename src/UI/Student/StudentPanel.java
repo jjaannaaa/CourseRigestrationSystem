@@ -1,6 +1,8 @@
 package UI.Student;
 
 import Repository.StudentRepo;
+import UI.Registration.RegistrationPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
